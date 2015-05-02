@@ -1,6 +1,6 @@
 /*API Object to encapsulate REST calls this application's API*/
 function API (){
-    var API_URL = "api"
+    var API_URL = "/api"
 
     /**
     * An Ajax call to the "correlation" endpoint of this application's API
