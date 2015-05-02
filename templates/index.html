@@ -1,0 +1,144 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Example WoTKit Data Analysis Application</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Timespan <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="timespan" id="6" href="#">6 hours</a></li>
+                            <li><a class="timespan" id="12" href="#">12 hours</a></li>
+                            <li><a class="timespan" id="24" href="#">24 hours</a></li>
+                            <li><a class="timespan" id="48" href="#">48 hours</a></li>
+                            <li><a class="timespan" id="60" href="#">60 hours</a></li>
+                            <li><a class="timespan" id="72" href="#">72 hours</a></li>
+                        </ul>
+                     </li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="loader-bar"></div>
+       
+        <!-- Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="searchModalLabel">Search Sensors</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="input-group">
+                            <input type="hidden" id="sensor" value=""/>
+                            <input type="text" class="form-control" id="modal-search-text" placeholder="Search a sensor..."/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="modal-search-btn" type="button">Go!</button>
+                            </span>
+                            
+                        </div>
+
+                        <div class="loader-bar"></div>
+
+                        <div class="list-group" id="sensor-list"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <!-- Sensor A -->
+            <div class="col-sm-12 col-md-6">
+                <!-- Sensor title and modal toggle -->
+                <div class="search-form">
+                    <button type="button" class="btn btn-default pull-right btn-sensor" data-toggle="modal" data-target="#searchModal" data-sensorpanel="sensora">Change Sensor</button>
+                    <h2>Sensor A</h2>
+                </div>
+                <!-- ChartJS Line Chart -->
+                <div class="placeholder" id="sensora">
+                    <h4>Departures at YVR</h4>
+                    <div class="chart-object">
+                        <canvas class="chart-js" id="639" data-sensorpanel="sensora"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensor B -->
+            <div class="col-sm-12 col-md-6">
+                <!-- Sensor title and modal toggle -->
+                <div class="search-form">
+                    <button type="button" class="btn btn-default pull-right btn-sensor" data-toggle="modal" data-target="#searchModal" data-sensorpanel="sensorb">Change Sensor</button>
+                    <h2>Sensor B</h2>
+                </div>
+                <!-- ChartJS Line Chart -->
+                <div class="placeholder" id="sensorb">
+                    <h4>Arrivals at YVR</h4>
+                    <div class="chart-object">
+                        <canvas class="chart-js" id="623" data-sensorpanel="sensorb"></canva>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+                <div class="row">
+                    <h4>Comparison Statistics</h4>
+                    <div class="placeholder" id="sensorcomparison">
+                        <div class="chart-object">
+                           <canvas class="chart-js" data-sensorpanel="sensorcomparison"></canva>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/Chart-1.0.2.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Our WoTKit example code -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/WoTKitexample.js') }}"></script>
+
+</body>
+
+</html>
