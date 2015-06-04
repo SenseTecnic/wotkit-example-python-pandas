@@ -1,9 +1,12 @@
 This application uses NumPy and Pandas to analyze and visualize data from the WoTKit. We also use OAuth2 to access private sensor data.
 
 
-## Getting Started 
+![alt](https://raw.githubusercontent.com/SenseTecnic/wotkit-example-python-pandas/master/screenshot-wotkit-example-python-pandas.png)
 
-Install Flask using ``pip``. Flask is a microframework for Python applications (http://flask.pocoo.org/). 
+
+## Getting Started
+
+Install Flask using ``pip``. Flask is a microframework for Python applications (http://flask.pocoo.org/).
 
 ```
 pip install Flask
@@ -36,4 +39,3 @@ python app.py
 ```
 
 and visit http://127.0.0.1:5000
-
