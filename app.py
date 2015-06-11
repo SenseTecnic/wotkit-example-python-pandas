@@ -54,7 +54,7 @@ def oauth_authorized(resp):
     session['wotkit_token'] = (resp['access_token'], '')
     return redirect('/')
 
-# 
+ 
 @WoTKitApp.route('/api/search', methods=['GET'])
 def search():
     """A simple API endpoint to compare data from two sensors
@@ -70,7 +70,6 @@ def search():
                http://127.0.0.1:5000/api/search?text=sensoraname"""
     return redirect(url_for('login'))
 
-# TODO: finish this 
 @WoTKitApp.route('/api/correlation', methods=['GET'])
 def analysis():
     """ A simple API endpoint to compare data from two sensors
